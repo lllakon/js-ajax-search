@@ -62,7 +62,14 @@ body {
 	overflow: hidden;
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+.image-wrapper {
+	height: 250px;
+	text-align: center;
+}
 .card__img {
+	padding: 10px;
+	max-width: 170px;
+	max-height: 250px;
 }
 .card__content {
 	padding: 0 16px 16px 16px;
