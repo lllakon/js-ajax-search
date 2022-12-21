@@ -7,7 +7,8 @@ export function generateCards(data) {
 	
 		cards.push(
 		`
-			<div class="card">
+			<div class="card" id="${e.id}">
+			<div class="card-overlay"></div>
 			<div class="image-wrapper"><img src="${e.image}" class="card__img" alt="Card image"></img></div>
 			
 				<div class=card__content>

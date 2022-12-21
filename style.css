@@ -57,11 +57,56 @@ body {
 
 /* Card */
 .card {
+	position: relative;
 	display: inline-block;
 	border-radius: 8px;
 	overflow: hidden;
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
 }
+/* .card:hover {
+	transform: scale(102%, 102%);
+} */
+.card--active {
+	z-index: 9;
+	background-color: #fff;
+	/* transform: scale(112%, 112%); */
+	width: 650px;
+	height: 750px;
+	padding: 100px;
+}
+.card-overlay {
+	z-index: 8;
+	position: absolute;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	transition: all 0.3s ease 0s;
+}
+.card-overlay:hover {
+	opacity: 1;
+	background-color: rgba(117, 115, 115, 0.136);
+}
+.card-overlay:hover::after {
+	content: 'Show more';
+	position: absolute;
+	padding: 10px 20px;
+	border-radius: 50px;
+	color: #000;
+	background-color: rgba(255, 255, 255, 0.703);
+	opacity: 1;
+	
+	left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
 .image-wrapper {
 	display:flex;
 	justify-content: center; /*центрируем элемент по горизонтали */
