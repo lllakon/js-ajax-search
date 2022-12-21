@@ -63,24 +63,50 @@ body {
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 .image-wrapper {
-	height: 250px;
-	text-align: center;
+	display:flex;
+	justify-content: center; /*центрируем элемент по горизонтали */
+	align-items: center; /* и вертикали */
+	width: 300px; /* задали размеры блоку-родителю */
+	height: 370px;
+	overflow: hidden; /* если элемент больше блока-родителя – обрезаем лишнее */
 }
 .card__img {
-	padding: 10px;
-	max-width: 170px;
-	max-height: 250px;
+	padding: 20px;
+	max-width: 270px;
+	max-height: 270px;
 }
 .card__content {
 	padding: 0 16px 16px 16px;
+	max-height: 300px;
 }
+
 .card__title {
 	padding: 15px 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 .card__description {
+	max-height: 60px;
 	font-weight: 300;
 	margin-bottom: 16px;
+	overflow: hidden;
+
+	position: relative;
 }
+
+.card__description:after {
+	content: "";
+	text-align: right;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 70%;
+	height: 1.2em;
+	background: linear-gradient(to right, rgba(255, 255, 255, 0), white 100%);
+	pointer-events: none;
+}
+
 .card__info {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -93,9 +119,13 @@ body {
 	color: #555;
 }
 .card__footer {
+	height: 60px;
 	display: flex;
 	justify-content: space-between;
-	margin-top: 16px;
+	align-items: center;
+}
+.card__footer label {
+	margin-bottom: 5px;
 }
 .card__count div {
 	display: inline-block;
@@ -116,10 +146,10 @@ body {
 	font-weight: 700;
 }
 .card__cost div::after {
-	content: '₽';
+	content: '$';
 	position: absolute;
 	bottom: 3px;
 	right: 0;
-	font-weight: 300;
+	font-weight: 600;
 	font-size: 0.8em;
 }

@@ -2,7 +2,6 @@ const results = document.getElementById('results');
 
 export function generateCards(data) {
 	const cards = [];
-	console.log(data)
 	
 	data.forEach((e) => {
 	
@@ -13,33 +12,29 @@ export function generateCards(data) {
 			
 				<div class=card__content>
 					<h3 class="card__title">${e.title}</h3>
-					<div class="card__description"></div>
+					<div class="card__description">${e.description}</div>
 					<div class="card__info">
 						<div class="card__param">
-							<label>Год:</label>
-							<div id="year"></div>
+							<label>Year:</label>
+							<div id="year">${randomYear(2018, 2022)}</div>
 						</div>
 						<div class="card__param">
-							<label>Цвет:</label>
-							<div id="color"></div>
+							<label>Catgory:</label>
+							<div id="category">${e.category}</div>
 						</div>
 						<div class="card__param">
-							<label>Категория:</label>
-							<div id="category"></div>
-						</div>
-						<div class="card__param">
-							<label>Страна:</label>
-							<div id="country"></div>
+							<label>Delivery from:</label>
+							<div id="country">Florida</div>
 						</div>
 					</div>
 					<div class="card__footer">
 						<div class="card__count">
-							<label>Количество:</label>
-							<div id="count"></div>
+							<label>Rating:</label>
+							<div id="rating">${e.rating.rate}</div>
 						</div>
 							<div class="card__cost">
-								<label>Цена:</label>
-								<div></div>
+								<label>Price:</label>
+								<div>${e.price}</div>
 							</div>
 						</div>
 					</div>
@@ -48,48 +43,12 @@ export function generateCards(data) {
 		`);
 	
 	})
-	
-	// for(let i = 0; i < data.length; i++) {
-	// 	cards.push(
-	// 	`
-	// 		<div class="card">
-	// 		<img src="" class="card__img" alt="Card image"></img>
-	// 			<div class=card__content>
-	// 				<h3 class="card__title">${data.title}</h3>
-	// 				<div class="card__description"></div>
-	// 				<div class="card__info">
-	// 					<div class="card__param">
-	// 						<label>Год:</label>
-	// 						<div id="year"></div>
-	// 					</div>
-	// 					<div class="card__param">
-	// 						<label>Цвет:</label>
-	// 						<div id="color"></div>
-	// 					</div>
-	// 					<div class="card__param">
-	// 						<label>Категория:</label>
-	// 						<div id="category"></div>
-	// 					</div>
-	// 					<div class="card__param">
-	// 						<label>Страна:</label>
-	// 						<div id="country"></div>
-	// 					</div>
-	// 				</div>
-	// 				<div class="card__footer">
-	// 					<div class="card__count">
-	// 						<label>Количество:</label>
-	// 						<div id="count"></div>
-	// 					</div>
-	// 						<div class="card__cost">
-	// 							<label>Цена:</label>
-	// 							<div></div>
-	// 						</div>
-	// 					</div>
-	// 				</div>
-	// 			</div>
-	// 		</div>
-	// 	`);
-	// }
 
 	results.innerHTML = cards.join('');
+}
+
+///
+function randomYear(min, max){
+	const r = Math.random()*(max-min) + min
+	return Math.floor(r)
 }
