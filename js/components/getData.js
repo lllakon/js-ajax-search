@@ -1,12 +1,14 @@
-const API_URL = 'https://fakestoreapi.com/products';
-
-getData(API_URL);
+import { generateCards } from "./cardsRender.js";
+import { cardOpenFn } from "./cardOpen.js";
 
 export async function getData(url) {
+	let data = [];
+
 	try {
 		const response = await fetch(url);
-		const data = await response.json();
-		console.log(data)
+		data = await response.json();
+		generateCards(data);
+		cardOpenFn(data);
 	} catch (e) {
 		console.error(e)
 		document.querySelector('.results').innerHTML = 'Что-то пошло не так :('

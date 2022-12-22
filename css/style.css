@@ -10,6 +10,11 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+.scroll-off {
+	overflow-y: hidden; /* Скрываем вертикальный scrollbar */
+  overflow-x: hidden; /* Скрываем горизонтальный scrollbar */
+}
+
 .wrapper {
 	max-width: 1440px;
 	padding: 20px;
@@ -65,17 +70,7 @@ body {
 	transition: all 0.3s ease 0s;
 	cursor: pointer;
 }
-/* .card:hover {
-	transform: scale(102%, 102%);
-} */
-.card--active {
-	z-index: 9;
-	background-color: #fff;
-	/* transform: scale(112%, 112%); */
-	width: 650px;
-	height: 750px;
-	padding: 100px;
-}
+/* Overlay */
 .card-overlay {
 	z-index: 8;
 	position: absolute;
@@ -105,7 +100,21 @@ body {
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-
+.card--active {
+	z-index: 9;
+	background-color: #fff;
+	opacity: 1;
+	position: absolute;
+}
+.card--active:hover {
+	background: #fff;
+}
+@media (max-width: 1009px){
+	.card--active, .card-overlay, .card-overlay:hover, .card-overlay:hover::after {
+		display: none;
+	}
+	
+}
 
 .image-wrapper {
 	display:flex;
