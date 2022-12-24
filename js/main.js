@@ -1,4 +1,4 @@
-import { getData } from './components/getData.js';
+import { getData } from './components/cardsLoad.js';
 
 const API_URL = 'https://fakestoreapi.com/products';
 

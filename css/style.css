@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('./modal.css');
+
+:root {
+	--rating-color: #000;
+	--rating-color-active: #ffd300;
+}
 
 * {
 	padding: 0;
@@ -72,7 +78,7 @@ body {
 }
 /* Overlay */
 .card-overlay {
-	z-index: 8;
+	z-index: 7;
 	position: absolute;
 	opacity: 0;
 	width: 100%;
@@ -101,7 +107,7 @@ body {
   transform: translate(-50%, -50%);
 }
 .card--active {
-	z-index: 9;
+	z-index: 7;
 	background-color: #fff;
 	opacity: 1;
 	position: absolute;
@@ -206,4 +212,56 @@ body {
 	right: 0;
 	font-weight: 600;
 	font-size: 0.8em;
+}
+
+/* Rating */
+.modal-window__rating {
+}
+.rating {
+	display: flex;
+	align-items: flex-end;
+	font-size: 30px;
+	line-height: 1;
+}
+.rating__body {
+	position: relative;
+}
+.rating__body::before {
+	content: "★★★★★";
+	display: block;
+}
+.rating__active {
+	position: absolute;
+	width: 80%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+.rating__active::before {
+	content: "★★★★★";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	color: var(--rating-color-active);
+}
+.rating__items {
+	display: flex;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.rating__item {
+	flex: 0 0 20%;
+	height: 100%;
+	opacity: 0;
+}
+.rating__value {
+	font-size: 50%;
+	line-height: 1;
+	padding: 0px 0px 0px 10px;
 }

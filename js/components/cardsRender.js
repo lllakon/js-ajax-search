@@ -2,7 +2,6 @@ const results = document.getElementById('results');
 
 export function generateCards(data) {
 	const cards = [];
-	
 	data.forEach((e) => {
 	
 		cards.push(
@@ -44,7 +43,7 @@ export function generateCards(data) {
 		`);
 	
 	})
-
+	
 	results.innerHTML = cards.join('');
 }
 ///

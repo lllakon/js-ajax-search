@@ -1,12 +1,23 @@
-
 /* Modal window */
+.overlay {
+	position: fixed;
+	opacity: 1;
+	z-index: 8;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.165);
+	width: 100%;
+	height: 100%;
+}
+
 .modal-window {
+	position: relative;
 	z-index: 9;
 	position: fixed;
 	background-color: black;
 	top: 0;
 	width: 992px;
 	height: 700px;
+	color: white;
 
 	left: 50%;
   top: 50%;
@@ -15,4 +26,13 @@
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.modal-window__close-btn {
+	position: absolute;
+	right: 50px;
+	top: 30px;
+	font-size: 25px;
+
+	cursor: pointer;
 }
