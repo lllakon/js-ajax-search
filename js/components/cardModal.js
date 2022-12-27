@@ -1,20 +1,22 @@
+import { initRating } from './ratingInit.js';
+
 const ratings = document.querySelectorAll('.rating');
-let modalStatus = false;
+const results = document.querySelector('.results')
 
 export function cardOpenFn(data) {
-	document.addEventListener('click', (e) => {
+	results.addEventListener('click', (e) => {
 		let cardClass = e.target;
 		let cardId = e.target.id;
+		console.log(cardId)
 		
 		if (cardId) {
 			// Определение содержимого модального окна
 			data.filter((item) => openModalWindow(item, cardClass, cardId));
-			modalStatus = true;
+			// Инициализация рейтинга
+			initRating()
 		}
-		modalStatus === true ? initRating() : null
 	});
 }
-
 
 function openModalWindow(item, cardClass, cardId) {
 	if(item.id == cardId) {
@@ -40,7 +42,7 @@ function openModalWindow(item, cardClass, cardId) {
 			<div class="rating__value">${item.rating.rate}</div>
 	
 		</div>
-		<div class="modal-window__number">${item.id}</div>
+		<div class="modal-window__number">${item.price}$</div>
 		<div class="modal-window__description">${item.description}</div>
 		<div class="modal-window__info param">
 			<div class="param__item"></div>
@@ -63,19 +65,4 @@ function closeModalWindow(modal, overlay, cardClass) {
 
 	cardClass.classList.remove('card--active'); // Реакция карточки при показе модалки
 	document.body.classList.remove('scroll-off'); // Включить скролл
-}
-
-// Card rating
-function initRating() {
-	let value = document.querySelector('.rating__value');
-	let ratingActive = document.querySelector('.rating__active');
-
-	setRatingActiveWidth(value);
-
-	function setRatingActiveWidth(value) {
-		const ratingActiveWidth = +value.textContent / 0.05;
-		ratingActive.style.width = `${ratingActiveWidth}%`;
-
-		modalStatus = false;
-	}
 }

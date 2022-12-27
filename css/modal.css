@@ -36,3 +36,52 @@
 
 	cursor: pointer;
 }
+
+/* Overlay */
+.card-overlay {
+	z-index: 7;
+	position: absolute;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	transition: all 0.3s ease 0s;
+}
+.card-overlay:hover {
+	opacity: 1;
+	background-color: rgba(117, 115, 115, 0.136);
+}
+.card-overlay:hover::after {
+	content: 'Show more';
+	position: absolute;
+	padding: 10px 20px;
+	border-radius: 50px;
+	color: #000;
+	background-color: rgba(255, 255, 255, 0.703);
+	opacity: 1;
+	
+	left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.card--active {
+	z-index: 7;
+	background-color: #fff;
+	opacity: 1;
+	position: absolute;
+}
+.card--active:hover {
+	background: #fff;
+}
+@media (max-width: 1009px){
+	.card--active, 
+	.card-overlay, 
+	.card-overlay:hover, 
+	.card-overlay:hover::after {
+		display: none;
+	}
+}
+

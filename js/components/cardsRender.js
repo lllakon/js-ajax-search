@@ -1,6 +1,6 @@
-const results = document.getElementById('results');
+export const results = document.querySelector('.results')
 
-export function generateCards(data) {
+export function renderCards(data) {
 	const cards = [];
 	data.forEach((e) => {
 	
@@ -41,7 +41,6 @@ export function generateCards(data) {
 				</div>
 			</div>
 		`);
-	
 	})
 	
 	results.innerHTML = cards.join('');
