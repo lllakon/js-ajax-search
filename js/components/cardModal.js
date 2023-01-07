@@ -1,13 +1,12 @@
 import { initRating } from './ratingInit.js';
 
 const ratings = document.querySelectorAll('.rating');
-const results = document.querySelector('.results')
+const results = document.querySelector('.results');
 
 export function cardOpenFn(data) {
 	results.addEventListener('click', (e) => {
 		let cardClass = e.target;
 		let cardId = e.target.id;
-		console.log(cardId)
 		
 		if (cardId) {
 			// Определение содержимого модального окна

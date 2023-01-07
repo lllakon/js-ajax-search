@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('./filter.css');
 @import url('./modal.css');
 @import url('./rating.css');
 
 :root {
+	--light-gray: #555;
 	--rating-color: #000;
 	--rating-color-active: #ffd300;
 }
@@ -26,6 +28,18 @@ body {
 	color: red;
 	text-align: center;
 	font-size: 20px;
+}
+
+.result-error {
+	word-wrap: break-word;
+}
+
+.result-error p {
+	margin-top: 10px;
+}
+
+.result-error span {
+	font-weight: 600;
 }
 
 .wrapper {
@@ -130,15 +144,14 @@ body {
 }
 
 .card__info {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 8px;
+	display: flex;
+	justify-content: space-between;
 }
 .card label {
 	display: block;
 	font-size: 14px;
 	font-weight: 300;
-	color: #555;
+	color: var(--light-gray);
 }
 .card__footer {
 	height: 60px;

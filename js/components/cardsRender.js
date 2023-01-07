@@ -1,9 +1,8 @@
-export const results = document.querySelector('.results')
+import { results } from '../main.js';
 
 export function renderCards(data) {
-	const cards = [];
+	let cards = [];
 	data.forEach((e) => {
-	
 		cards.push(
 		`
 			<div class="card">
@@ -19,7 +18,7 @@ export function renderCards(data) {
 							<div id="year">${randomYear(2018, 2022)}</div>
 						</div>
 						<div class="card__param">
-							<label>Catgory:</label>
+							<label>Category:</label>
 							<div id="category">${e.category}</div>
 						</div>
 						<div class="card__param">
@@ -40,10 +39,11 @@ export function renderCards(data) {
 					</div>
 				</div>
 			</div>
-		`);
-	})
-	
+			`);
+	});
+
 	results.innerHTML = cards.join('');
+	
 }
 ///
 function randomYear(min, max){
