@@ -15,7 +15,7 @@ export function renderCards(data) {
 					<div class="card__info">
 						<div class="card__param">
 							<label>Year:</label>
-							<div id="year">${randomYear(2018, 2022)}</div>
+							<div id="year">${randomYear(2018, 2024)}</div>
 						</div>
 						<div class="card__param">
 							<label>Category:</label>

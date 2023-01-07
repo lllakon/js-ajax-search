@@ -1,7 +1,6 @@
 import { renderCards } from "./components/cardsRender.js";
 import { cardOpenFn } from "./components/cardModal.js";
 import { productSearch } from "./components/productSearch.js";
-import { cardsFilter } from "./components/filter.js"
 const API_URL = 'https://fakestoreapi.com/products';
 export const results = document.querySelector('.results');
 
@@ -15,7 +14,6 @@ async function getData(url) {
 		data = await response.json();
 
 		renderCards(data);
-		cardsFilter(data);
 		productSearch(data);
 		cardOpenFn(data);
 	} catch (e) {
